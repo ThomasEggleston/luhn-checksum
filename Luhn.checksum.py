@@ -74,20 +74,9 @@ def checkFinished(checksum1, checksum2, digits):
             
     return isFinished
 
-def luhnTest(number, expected):
-    print("Luhn checksum for:", number)
-    result = luhnChecksum(number)
-    if result == expected:
-        print("\tpassed")
-    else:
-        print ("\tfailed")
-
 if __name__ == '__main__':
     if len(sys.argv) == 2:
         inputText = sys.argv[1].strip()
         print(luhnChecksum(inputText))
     else:
-        luhnTest("1762483", True)
-        luhnTest("79927398713", True)
-        luhnTest("123456789", False)
-        luhnTest("2121", True)
+        print("No input given: Enter a number as a string")
