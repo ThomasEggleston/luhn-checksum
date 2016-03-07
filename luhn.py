@@ -28,7 +28,7 @@
 # 4. Convert the integer into a string, which may be iterated through. Trying to 
 #    simulate a stream of integers.
 
-import sys
+import sys, string
 
 def luhnChecksum(string):
     valid = False
@@ -74,9 +74,21 @@ def checkFinished(checksum1, checksum2, digits):
             
     return isFinished
 
+def validateString(inputString):
+    isValid = True
+    
+    for char in inputString:
+        if char not in string.digits:
+            isValid = False
+    
+    return isValid
+
 if __name__ == '__main__':
     if len(sys.argv) == 2:
         inputText = sys.argv[1].strip()
-        print(luhnChecksum(inputText))
+        if validateString(inputText):
+            print(luhnChecksum(inputText))
+        else:
+            print("Invalid string: Must only contain digits")
     else:
         print("No input given: Enter a number as a string")
