@@ -12,22 +12,6 @@
     as if there is a stream of digits.
 '''
 
-# Problems to solve
-#
-# 1. Knowing which digits to double
-# 2. Treating doubled numbers 10 and greater according to their digits
-# 3. Knowing we've reached the end of the number
-# 4. Reading each digit separately
-
-# 1. Store two ongoing checksums, since either may be end up being correct.
-# 2. Need to check whether a digit is greater than or equal to 5. If it is 5 or
-#    greater, then after doubling: subtract 10 and add 1, and add this number to
-#    checksum.
-# 3. After adding most recent digit(s), check whether the sum is divisible by 10
-#    ie. sum % 10 == 0.
-# 4. Convert the integer into a string, which may be iterated through. Trying to
-#    simulate a stream of integers.
-
 import sys, string
 
 def luhnChecksum(string):
